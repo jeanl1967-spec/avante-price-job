@@ -1,19 +1,21 @@
-// Availability check for ONE property and ONE month (started from the hook
-// builder's "Check availability" button). Reads StockNetwork's booking site
-// live, works out the minimum stay (tries 1, 2, 3, 5 and 7 nights), marks
-// every night that can be booked, and saves avail/<ResortID>-<YYYY-MM>.json in
-// this repository for the hook builder's calendar. Nothing is reused: each run
-// is a fresh live check.
-//   RESORT_ID, MONTH (YYYY-MM), REQUEST_ID (from the hook builder), AGENT_ID
+// Availability check for ONE property — a two-week window (or a whole month)
+// — started from the hook builder's availability grid. Records every UNIT
+// TYPE's availability and price per night (like NightsBridge), works out
+// the minimum stay (tries 1, 2, 3, 5 and 7 nights), and saves
+// avail/<ResortID>-<start>.json in this repository. Each run is a fresh live check.
 import { chromium } from "playwright";
 import fs from "fs";
 import { execSync } from "child_process";
 const env = process.env;
 const RID = String(env.RESORT_ID || "").toLowerCase().trim(), MONTH = String(env.MONTH || "").trim();
 const AGENT = env.AGENT_ID || "85f88c9f-46bd-4d99-bf0a-1dc2a150ad55";
-if (!/^[0-9a-f-]{36}$/.test(RID) || !/^\d{4}-\d{2}$/.test(MONTH)) { console.error("Need RESORT_ID and MONTH (YYYY-MM)."); process.exit(1); }
-const [Y, M] = MONTH.split("-").map(Number), DAYS = new Date(Date.UTC(Y, M, 0)).getUTCDate();
-const iso = (d) => d.toISOString().slice(0, 10), day = (n) => new Date(Date.UTC(Y, M - 1, n)), plus = (d, n) => new Date(d.getTime() + n * 864e5);
+// MONTH is either "YYYY-MM" (whole month) or "YYYY-MM-DD" (14 days from that date).
+if (!/^[0-9a-f-]{36}$/.test(RID) || !/^\d{4}-\d{2}(-\d{2})?$/.test(MONTH)) { console.error("Need RESORT_ID and MONTH (YYYY-MM or YYYY-MM-DD)."); process.exit(1); }
+const iso = (d) => d.toISOString().slice(0, 10), plus = (d, n) => new Date(d.getTime() + n * 864e5);
+const WINDOW = MONTH.length === 10;
+const FIRST = new Date(Date.UTC(+MONTH.slice(0, 4), +MONTH.slice(5, 7) - 1, WINDOW ? +MONTH.slice(8, 10) : 1));
+const DAYS = WINDOW ? 14 : new Date(Date.UTC(FIRST.getUTCFullYear(), FIRST.getUTCMonth() + 1, 0)).getUTCDate();
+const day = (n) => plus(FIRST, n - 1), inRange = (key) => key >= iso(FIRST) && key <= iso(plus(FIRST, DAYS - 1));
 const today = new Date(new Date().toISOString().slice(0, 10) + "T00:00:00Z");
 
 async function check(ctx, ci, nights) {
@@ -24,9 +26,17 @@ async function check(ctx, ci, nights) {
     catch (e) { return { ok: null }; }
     await page.waitForTimeout(500);
     return await page.evaluate(() => {
-      const ps = [...document.querySelectorAll(".stock-price, .stock-price-smaller")].filter((e) => !e.classList.contains("strikethrough")).map((e) => parseFloat(e.textContent.replace(/[^\d.]/g, ""))).filter((n) => n > 0);
-      const units = [...document.querySelectorAll(".resort-availability-row")].map((r) => +((r.innerText.match(/Avail:\s*(\d+)/) || [0, 0])[1])).reduce((a, b) => a + b, 0);
-      return ps.length ? { ok: true, total: Math.min(...ps), units } : { ok: false };
+      // One row per unit type: its name, its price for the stay, how many are free.
+      const rows = [...document.querySelectorAll(".resort-availability-row")].map((r) => {
+        const name = ((r.innerText || "").split("\n").map((t) => t.trim()).find((t) => t.length > 3) || "Unit").slice(0, 120);
+        const ps = [...r.querySelectorAll(".stock-price, .stock-price-smaller")].filter((e) => !e.classList.contains("strikethrough")).map((e) => parseFloat(e.textContent.replace(/[^\d.]/g, ""))).filter((n) => n > 0);
+        return { name, total: ps.length ? Math.min(...ps) : 0, avail: +((r.innerText.match(/Avail:\s*(\d+)/) || [0, 1])[1]) };
+      }).filter((r) => r.total > 0);
+      if (!rows.length) {
+        const ps = [...document.querySelectorAll(".stock-price, .stock-price-smaller")].filter((e) => !e.classList.contains("strikethrough")).map((e) => parseFloat(e.textContent.replace(/[^\d.]/g, ""))).filter((n) => n > 0);
+        if (ps.length) rows.push({ name: "All units", total: Math.min(...ps), avail: 1 });
+      }
+      return rows.length ? { ok: true, total: Math.min(...rows.map((r) => r.total)), units: rows.reduce((a, r) => a + r.avail, 0), rows } : { ok: false };
     });
   } catch (e) { return { ok: null }; } finally { await page.close(); }
 }
@@ -43,21 +53,31 @@ if (!results.some((r) => r && r.ok)) {
     const probe = await pool(starts.filter((_, i) => i % 3 === 0).slice(0, 8), 8, (d) => check(ctx, d, n));
     if (probe.some((r) => r && r.ok)) { minNights = n; break; }
   }
+  // Stays that start a few days before the window can still cover nights in it.
+  if (minNights) { for (let k = 1; k < minNights; k++) { const d = plus(FIRST, -k); if (d >= today) starts.unshift(d); } }
   results = minNights ? await pool(starts, 8, (d) => check(ctx, d, minNights)) : results.map(() => ({ ok: false }));
 }
 await browser.close();
-// A night is available if any bookable stay covers it.
-const nights = {};
+// A night is available (for the property, and per unit type) if any
+// bookable stay covers it; its price is that stay's price per night.
+const nights = {}, unitNames = [];
 starts.forEach((d, i) => {
   const r = results[i]; if (!r || !minNights) return;
   for (let k = 0; k < minNights; k++) {
-    const key = iso(plus(d, k)); if (key.slice(0, 7) !== MONTH) continue;
-    if (r.ok) nights[key] = { open: true, perNight: Math.round(r.total / minNights), units: r.units };
-    else if (!nights[key] && r.ok === false) nights[key] = { open: false };
+    const key = iso(plus(d, k)); if (!inRange(key)) continue;
+    const n = nights[key] || (nights[key] = { open: false, units: {} });
+    if (r.ok) {
+      n.open = true; const pn = Math.round(r.total / minNights); n.perNight = n.perNight ? Math.min(n.perNight, pn) : pn;
+      for (const row of r.rows) {
+        if (!unitNames.includes(row.name)) unitNames.push(row.name);
+        const up = Math.round(row.total / minNights), cur = n.units[row.name];
+        if (!cur || up < cur.perNight) n.units[row.name] = { perNight: up, avail: row.avail };
+      }
+    }
   }
 });
-for (let i = 1; i <= DAYS; i++) { const key = iso(day(i)); if (!nights[key]) nights[key] = { open: false, past: day(i) < today }; }
-const out = { resortId: RID, month: MONTH, minNights, checkedAt: new Date().toISOString(), requestId: env.REQUEST_ID || "", nights };
+for (let i = 1; i <= DAYS; i++) { const key = iso(day(i)); if (!nights[key]) nights[key] = { open: false, units: {}, past: day(i) < today }; }
+const out = { resortId: RID, month: MONTH, start: iso(FIRST), days: DAYS, minNights, unitNames, checkedAt: new Date().toISOString(), requestId: env.REQUEST_ID || "", nights };
 fs.mkdirSync("avail", { recursive: true });
 const file = `avail/${RID}-${MONTH}.json`; fs.writeFileSync(file, JSON.stringify(out, null, 1));
 console.log(`${Object.values(nights).filter((n) => n.open).length} available nights in ${MONTH}, minimum stay ${minNights || "none found"}.`);
