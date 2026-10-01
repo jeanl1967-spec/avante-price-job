@@ -1,7 +1,8 @@
-// Price job for the Avante hooks site (v2).
+// Price job for the Avante hooks site (v3 — saves to GitHub).
 // For every hub property it opens StockNetwork's own booking page for a few
 // upcoming 2-night stays and keeps the LOWEST price per night, then saves the
-// list to the hooks site (POST /api/rates), which fills "from R… per night".
+// list into this repository as rates-<runner>.json (committed and pushed),
+// which the hooks site reads from GitHub to fill "from R… per night".
 //
 // Built to never lose work: prices are saved every SAVE_EVERY properties,
 // it stops cleanly before TIME_BUDGET_MIN, and properties priced in the last
@@ -18,6 +19,8 @@
 //   SAVE_EVERY    save after this many properties, default 25
 //   ONLY_IDS, DRY_RUN=1  for testing
 import { chromium } from "playwright";
+import fs from "fs";
+import { execSync } from "child_process";
 
 const env = process.env;
 const HUB = (env.HUB_URL || "https://go.avantetravel.co.za").replace(/\/$/, "");
@@ -41,43 +44,65 @@ async function resortIds() {
   const seen = new Set();
   return list.filter((x) => /^[0-9a-f-]{36}$/.test(x.id) && !seen.has(x.id) && seen.add(x.id));
 }
-async function recentlyPriced() {
+function readRates(file) { try { return JSON.parse(fs.readFileSync(file, "utf8")).rates || {}; } catch (e) { return {}; } }
+const OUT = `rates-${SHARD}.json`;
+const saved = readRates(OUT); // this runner's earlier prices, kept and updated
+function recentlyPriced() {
   if (!SKIP_DAYS || env.ONLY_IDS) return new Set();
-  try {
-    const j = await (await fetch(HOOKS + "/api/rates")).json();
-    const cutoff = Date.now() - SKIP_DAYS * 864e5;
-    return new Set(Object.entries(j.rates || {}).filter(([, r]) => r.checkedAt && Date.parse(r.checkedAt) > cutoff).map(([id]) => id));
-  } catch (e) { return new Set(); }
+  const cutoff = Date.now() - SKIP_DAYS * 864e5, all = {};
+  for (const f of fs.readdirSync(".").filter((f) => /^rates-\d+\.json$/.test(f))) Object.assign(all, readRates(f));
+  return new Set(Object.entries(all).filter(([, r]) => r.checkedAt && Date.parse(r.checkedAt) > cutoff).map(([id]) => id));
 }
-
 async function lowestTotal(page, id, ci, co) {
   await page.goto(`https://stock.stocknetwork.co.za/ui/${AGENT}?ResortID=${id}&CheckInDT=${ci}&CheckOutDT=${co}`, { timeout: 45000, waitUntil: "domcontentloaded" });
   try {
     await page.waitForFunction(() => document.querySelector(".stock-price, .stock-price-smaller") || /no vacancies/i.test(document.body.innerText), null, { timeout: 25000 });
   } catch (e) { return null; }
   await page.waitForTimeout(500);
-  const nums = await page.$$eval(".stock-price, .stock-price-smaller", (els) =>
-    els.filter((e) => !e.classList.contains("strikethrough")).map((e) => parseFloat(e.textContent.replace(/[^\d.]/g, ""))).filter((n) => n > 0));
-  return nums.length ? Math.min(...nums) : null;
+  // Every unit's own price (by the unit's name on the booking page), and the lowest.
+  const found = await page.$$eval(".stock-price-smaller, .stock-price", (els) => els.filter((e) => !e.classList.contains("strikethrough")).map((el) => {
+    // Each unit has its own row that starts with the unit's name.
+    const row = el.closest(".resort-availability-row");
+    const name = row ? ((row.innerText || "").split("\n").map((t) => t.trim()).find((t) => t.length > 3) || "") : "";
+    return { name: name.slice(0, 120), price: parseFloat(el.textContent.replace(/[^\d.]/g, "")) };
+  }).filter((x) => x.price > 0));
+  if (!found.length) return null;
+  const units = {};
+  for (const f of found) if (f.name && (!units[f.name] || f.price < units[f.name])) units[f.name] = f.price;
+  return { total: Math.min(...found.map((f) => f.price)), units };
 }
 
-let pending = {};
+let pending = {}, sinceCommit = 0;
+function sh(cmd) { return execSync(cmd, { stdio: ["ignore", "pipe", "pipe"] }).toString().trim(); }
 async function save(final) {
-  const batch = pending; pending = {};
-  const n = Object.keys(batch).length;
-  if (!n) return;
-  if (env.DRY_RUN) { console.log((final ? "Final" : "Progress") + " batch:", JSON.stringify(batch)); return; }
-  try {
-    const res = await fetch(HOOKS + "/api/rates", { method: "POST", headers: { "content-type": "application/json", "x-rates-token": env.RATES_TOKEN || "" }, body: JSON.stringify({ rates: batch }) });
-    console.log(`Saved ${n} price(s) to the hooks site: ${res.status} ${await res.text()}`);
-    if (res.status === 401) { console.error("The RATES_TOKEN secret doesn't match the hooks site. Check it under Settings → Secrets and variables → Actions."); process.exit(1); }
-  } catch (e) { console.error("Couldn't save this batch:", e.message); Object.assign(pending, batch); }
+  const n = Object.keys(pending).length;
+  Object.assign(saved, pending); sinceCommit += n; pending = {};
+  fs.writeFileSync(OUT, JSON.stringify({ updatedAt: new Date().toISOString(), runner: SHARD, count: Object.keys(saved).length, rates: saved }, null, 1));
+  if (env.DRY_RUN || env.NO_PUSH) { if (n) console.log(`Wrote ${n} price(s) to ${OUT} (not pushed).`); return; }
+  if (!final && sinceCommit < 100) return; // push every ~100 prices, and at the end
+  if (!sinceCommit) return;
+  for (let tryNo = 1; tryNo <= 5; tryNo++) {
+    try {
+      sh(`git add ${OUT}`);
+      if (!sh("git status --porcelain " + OUT)) { sinceCommit = 0; return; }
+      sh(`git commit -m "Prices: runner ${SHARD}, ${Object.keys(saved).length} properties"`);
+      sh("git pull --rebase --quiet origin HEAD");
+      sh("git push --quiet origin HEAD");
+      console.log(`Saved ${Object.keys(saved).length} price(s) in ${OUT} on GitHub.`);
+      sinceCommit = 0; return;
+    } catch (e) {
+      console.log(`Push attempt ${tryNo} didn't go through (${String(e.stderr || e.message).split("\n")[0]}), trying again…`);
+      try { sh("git rebase --abort"); } catch (e2) {}
+      await new Promise((r) => setTimeout(r, 3000 * tryNo));
+    }
+  }
+  console.error("Couldn't push the prices to GitHub. Check Settings → Actions → General → Workflow permissions is set to 'Read and write'.");
+  process.exit(1);
 }
-
 async function main() {
   const all = await resortIds();
   const mine = all.filter((p) => SHARDS === 1 || hash(p.id) % SHARDS === SHARD);
-  const skip = await recentlyPriced();
+  const skip = recentlyPriced();
   const todo = mine.filter((p) => !skip.has(p.id));
   console.log(`${all.length} hub properties · this runner ${mine.length} · already priced this week ${mine.length - todo.length} · to check now ${todo.length}`);
   if (!todo.length) return;
@@ -94,8 +119,10 @@ async function main() {
       for (const days of STARTS) {
         const a = new Date(Date.now() + days * 864e5), b = new Date(a.getTime() + NIGHTS * 864e5);
         try {
-          const total = await lowestTotal(page, p.id, iso(a), iso(b));
-          if (total && (!best || total / NIGHTS < best.perNight)) best = { perNight: total / NIGHTS, total, nights: NIGHTS, checkIn: iso(a) };
+          const r = await lowestTotal(page, p.id, iso(a), iso(b));
+          if (r && (!best || r.total / NIGHTS < best.perNight)) best = { perNight: r.total / NIGHTS, total: r.total, nights: NIGHTS, checkIn: iso(a), units: best && best.units || {} };
+          // keep each unit's lowest price a night across the sample stays
+          if (r && best) for (const [nm, tot] of Object.entries(r.units)) { const pn = Math.round(tot / NIGHTS); if (!best.units[nm] || pn < best.units[nm]) best.units[nm] = pn; }
         } catch (e) { /* try the next date */ }
       }
       done++;
