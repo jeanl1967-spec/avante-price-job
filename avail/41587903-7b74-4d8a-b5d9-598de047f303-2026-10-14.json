@@ -1,0 +1,364 @@
+{
+ "resortId": "41587903-7b74-4d8a-b5d9-598de047f303",
+ "month": "2026-10-14",
+ "start": "2026-10-14",
+ "days": 14,
+ "minNights": 1,
+ "unitNames": [
+  "Unit 3 - Double Room - Studio, 2 Sleeper",
+  "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper",
+  "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper",
+  "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper",
+  "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper",
+  "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper",
+  "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper"
+ ],
+ "checkedAt": "2026-10-01T13:44:01.188Z",
+ "requestId": "rmupl3f2pdjf7",
+ "nights": {
+  "2026-10-14": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-15": {
+   "open": true,
+   "units": {
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-16": {
+   "open": false,
+   "units": {}
+  },
+  "2026-10-17": {
+   "open": false,
+   "units": {}
+  },
+  "2026-10-18": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-19": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-20": {
+   "open": true,
+   "units": {
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-21": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-22": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-23": {
+   "open": false,
+   "units": {}
+  },
+  "2026-10-24": {
+   "open": false,
+   "units": {}
+  },
+  "2026-10-25": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-26": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  },
+  "2026-10-27": {
+   "open": true,
+   "units": {
+    "Unit 3 - Double Room - Studio, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 4 - Double or Twin - 1 Bedroom, 2 Sleeper": {
+     "perNight": 698,
+     "avail": 1
+    },
+    "Unit 1 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 847,
+     "avail": 1
+    },
+    "Unit 7 - Double Room - 1 Bedroom, 2 Sleeper": {
+     "perNight": 898,
+     "avail": 1
+    },
+    "Unit 2 - Family Room - 1 Bedroom, 4 Sleeper": {
+     "perNight": 998,
+     "avail": 1
+    },
+    "Unit 5 - Family Unit - 2 Bedroom, 5 Sleeper": {
+     "perNight": 1097,
+     "avail": 1
+    },
+    "Unit 6 - Family Unit - 2 Bedroom, 4 Sleeper": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 698
+  }
+ }
+}
