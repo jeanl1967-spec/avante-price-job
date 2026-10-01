@@ -1,0 +1,82 @@
+{
+ "resortId": "3150bb76-98f3-4c68-b355-5ee29b7c83b9",
+ "month": "2026-11-04",
+ "start": "2026-11-04",
+ "days": 14,
+ "minNights": 0,
+ "unitNames": [],
+ "checkedAt": "2026-10-01T13:45:40.888Z",
+ "requestId": "rmupl1cdshtty",
+ "nights": {
+  "2026-11-04": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-05": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-06": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-07": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-08": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-09": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-10": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-11": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-12": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-13": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-14": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-15": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-16": {
+   "open": false,
+   "units": {},
+   "past": false
+  },
+  "2026-11-17": {
+   "open": false,
+   "units": {},
+   "past": false
+  }
+ }
+}
