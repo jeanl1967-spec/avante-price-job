@@ -1,0 +1,307 @@
+{
+ "resortId": "178db5e4-c575-4904-b1f4-e570c7bf5c2b",
+ "month": "2026-10-20",
+ "start": "2026-10-20",
+ "days": 14,
+ "minNights": 1,
+ "unitNames": [
+  "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom",
+  "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ",
+  "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath",
+  "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. "
+ ],
+ "checkedAt": "2026-10-01T13:33:09.467Z",
+ "requestId": "t1790861518",
+ "nights": {
+  "2026-10-20": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-21": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-22": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-23": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-24": {
+   "open": false,
+   "units": {}
+  },
+  "2026-10-25": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-26": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-27": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-28": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-29": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-30": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-10-31": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-11-01": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  },
+  "2026-11-02": {
+   "open": true,
+   "units": {
+    "Apartment - Ground Floor Unit A - Double bed and a single bed in same room, suitable for for an adult. En-suite bathroom": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment - Ground Floor Unit B - Double bed and a bunk bed suitable for small children,in same room. En-suite bathroom ": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit C - Double bed in the main room and a single bed in living area. En-suite bathroom with bath": {
+     "perNight": 749,
+     "avail": 1
+    },
+    "Apartment with Balcony Unit D - Double bed and a bunk bed next door in living area. En-suite bathroom with shower only. ": {
+     "perNight": 749,
+     "avail": 1
+    }
+   },
+   "perNight": 749
+  }
+ }
+}
