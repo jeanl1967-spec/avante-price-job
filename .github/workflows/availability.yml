@@ -1,0 +1,14 @@
+{"name": "Check availability",
+ "on": {"workflow_dispatch": {"inputs": {
+   "resort_id": {"description": "StockNetwork ResortID", "required": true, "type": "string"},
+   "month": {"description": "Month, e.g. 2026-12", "required": true, "type": "string"},
+   "request_id": {"description": "Set by the hook builder", "required": false, "type": "string", "default": ""}}}},
+ "permissions": {"contents": "write"},
+ "concurrency": {"group": "availability-${{ inputs.resort_id }}-${{ inputs.month }}", "cancel-in-progress": true},
+ "jobs": {"check": {"runs-on": "ubuntu-latest", "timeout-minutes": 15, "steps": [
+   {"uses": "actions/checkout@v4"},
+   {"uses": "actions/setup-node@v4", "with": {"node-version": 20}},
+   {"name": "Install the browser", "run": "npm install --no-save playwright@1.56.0 && npx playwright install --with-deps chromium"},
+   {"name": "Check the month on StockNetwork and save it", "env": {"RESORT_ID": "${{ inputs.resort_id }}", "MONTH": "${{ inputs.month }}", "REQUEST_ID": "${{ inputs.request_id }}"},
+    "run": "git config user.name 'Avante availability' && git config user.email 'availability@users.noreply.github.com' && node check-availability.mjs"}
+ ]}}}
