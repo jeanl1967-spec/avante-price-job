@@ -1,0 +1,140 @@
+{
+ "resortId": "374f80dd-e82b-4d16-b056-d94afac52f5d",
+ "month": "2026-12",
+ "minNights": 7,
+ "checkedAt": "2026-10-01T10:21:56.879Z",
+ "requestId": "test-1790849943",
+ "nights": {
+  "2026-12-01": {
+   "open": false
+  },
+  "2026-12-02": {
+   "open": false
+  },
+  "2026-12-03": {
+   "open": false
+  },
+  "2026-12-04": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-05": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-06": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-07": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-08": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-09": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-10": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-11": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-12": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-13": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-14": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-15": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-16": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-17": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-18": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-19": {
+   "open": false
+  },
+  "2026-12-20": {
+   "open": false
+  },
+  "2026-12-21": {
+   "open": false
+  },
+  "2026-12-22": {
+   "open": false
+  },
+  "2026-12-23": {
+   "open": false
+  },
+  "2026-12-24": {
+   "open": false
+  },
+  "2026-12-25": {
+   "open": false
+  },
+  "2026-12-26": {
+   "open": false
+  },
+  "2026-12-27": {
+   "open": false
+  },
+  "2026-12-28": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-29": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-30": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  },
+  "2026-12-31": {
+   "open": true,
+   "perNight": 5964,
+   "units": 1
+  }
+ }
+}
