@@ -1,0 +1,264 @@
+{
+ "resortId": "657c66e2-5731-4efc-a138-1d809a47ca92",
+ "month": "2026-10-01",
+ "start": "2026-10-01",
+ "days": 14,
+ "minNights": 1,
+ "unitNames": [
+  "Twin Suite - 2 Sleeper (1221)",
+  "Luxury Tents - 2 Sleeper (1221)",
+  "Family Suite R6 - 1 Bedroom, 3 Sleeper",
+  "De Luxe Family Suite - 4 Sleeper (1241)",
+  "King Suite - 2 Sleeper (1221)"
+ ],
+ "checkedAt": "2026-10-01T14:27:05.342Z",
+ "requestId": "rmupmmzz0wk9k",
+ "nights": {
+  "2026-10-01": {
+   "open": false,
+   "units": {}
+  },
+  "2026-10-02": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 984,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1061,
+     "avail": 3
+    }
+   },
+   "perNight": 984
+  },
+  "2026-10-03": {
+   "open": true,
+   "units": {
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1061,
+     "avail": 11
+    }
+   },
+   "perNight": 1061
+  },
+  "2026-10-04": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 984,
+     "avail": 1
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1026,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1061,
+     "avail": 15
+    },
+    "De Luxe Family Suite - 4 Sleeper (1241)": {
+     "perNight": 1204,
+     "avail": 1
+    }
+   },
+   "perNight": 984
+  },
+  "2026-10-05": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 984,
+     "avail": 1
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1026,
+     "avail": 1
+    },
+    "King Suite - 2 Sleeper (1221)": {
+     "perNight": 1026,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1061,
+     "avail": 15
+    },
+    "De Luxe Family Suite - 4 Sleeper (1241)": {
+     "perNight": 1204,
+     "avail": 1
+    }
+   },
+   "perNight": 984
+  },
+  "2026-10-06": {
+   "open": true,
+   "units": {
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1026,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1061,
+     "avail": 15
+    }
+   },
+   "perNight": 1026
+  },
+  "2026-10-07": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 1
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1246,
+     "avail": 15
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-08": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 1
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "King Suite - 2 Sleeper (1221)": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1246,
+     "avail": 5
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-09": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 1
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1246,
+     "avail": 5
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-10": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 2
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1246,
+     "avail": 12
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-11": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 2
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "King Suite - 2 Sleeper (1221)": {
+     "perNight": 1207,
+     "avail": 2
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1246,
+     "avail": 1
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-12": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 2
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "King Suite - 2 Sleeper (1221)": {
+     "perNight": 1207,
+     "avail": 2
+    },
+    "De Luxe Family Suite - 4 Sleeper (1241)": {
+     "perNight": 1416,
+     "avail": 1
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-13": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 2
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "De Luxe Family Suite - 4 Sleeper (1241)": {
+     "perNight": 1416,
+     "avail": 1
+    }
+   },
+   "perNight": 1157
+  },
+  "2026-10-14": {
+   "open": true,
+   "units": {
+    "Twin Suite - 2 Sleeper (1221)": {
+     "perNight": 1157,
+     "avail": 2
+    },
+    "Family Suite R6 - 1 Bedroom, 3 Sleeper": {
+     "perNight": 1207,
+     "avail": 1
+    },
+    "Luxury Tents - 2 Sleeper (1221)": {
+     "perNight": 1246,
+     "avail": 13
+    }
+   },
+   "perNight": 1157
+  }
+ }
+}
